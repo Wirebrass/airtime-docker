@@ -1,0 +1,5 @@
+airtime:
+  image: 'nemosupinfo/airtime:latest'
+  ports:
+    - '80:80'
+    - '8001:8001'
