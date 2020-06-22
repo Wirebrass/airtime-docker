@@ -1,5 +1,36 @@
-airtime:
-  image: 'nemosupinfo/airtime:latest'
-  ports:
-    - '80:80'
-    - '8001:8001'
+version: "3.3"
+services:
+
+  airtime:
+    image: 'nemosupinfo/airtime:latest'
+    ports:
+      - '127.0.0.1:80:80'
+      - '127.0.0.1:8001:8001'
+    volumes:
+      - /mnt/airtime-data:/srv/airtime/stor
+      - etc-airtime-volume:/etc/airtime
+      - var-tmp-airtime-volume:/var/tmp/airtime/
+      - var-log-airtime-volume:/var/log/airtime
+      - usr-share-airtime-volume:/usr/share/airtime
+      - usr-lib-airtime-volume:/usr/lib/airtime
+      - etc-postgresql-volume:/etc/postgresql
+      - var-log-postgresql-volume:/var/log/postgresql
+      - var-lib-postgresql-volume:/var/lib/postgresql
+      - var-log-rabbitmq-volume:/var/log/rabbitmq
+      - var-lib-rabbitmq-volume:/var/lib/rabbitmq
+      - etc-icecast2-volume:/etc/icecast2
+      - var-log-icecast2-volume:/var/log/icecast2
+
+volumes:
+  etc-airtime-volume:
+  var-tmp-airtime-volume:
+  var-log-airtime-volume:
+  usr-share-airtime-volume:
+  usr-lib-airtime-volume:
+  etc-postgresql-volume:
+  var-log-postgresql-volume:
+  var-lib-postgresql-volume:
+  var-log-rabbitmq-volume:
+  var-lib-rabbitmq-volume:
+  etc-icecast2-volume:
+  var-log-icecast2-volume:
